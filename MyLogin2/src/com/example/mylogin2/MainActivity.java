@@ -1,7 +1,10 @@
 package com.example.mylogin2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -34,12 +37,18 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				String strTmp = pwd1.getText().toString();
-				if(strTmp.equals("12"))
-					System.out.println("Login succeed!");
-				else
-					System.out.println("Login failed");
+				if (strTmp.equals("12345")) {
+					ShowDialog("Login succeed!");
+				} else{
+					ShowDialog("Login failed!");
+				}
 			}
 		});
+	}
+
+	public void ShowDialog(String str) {
+		new AlertDialog.Builder(MainActivity.this).setTitle("Login Result:")
+				.setMessage(str).setPositiveButton("OK", null).show();
 	}
 
 	@Override
