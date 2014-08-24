@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,7 +17,7 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
-	Button btn1;
+	Button btn1, btn2;
 	EditText pwd1;
 
 	@Override
@@ -30,6 +31,7 @@ public class MainActivity extends Activity {
 		}
 
 		btn1 = (Button) this.findViewById(R.id.button1);
+		btn2 = (Button) this.findViewById(R.id.button2);
 		pwd1 = (EditText) this.findViewById(R.id.editText1);
 
 		btn1.setOnClickListener(new Button.OnClickListener() {
@@ -42,6 +44,14 @@ public class MainActivity extends Activity {
 				} else{
 					ShowDialog("Login failed!");
 				}
+			}
+		});
+		
+		btn2.setOnClickListener(new Button.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+                System.exit(0);
 			}
 		});
 	}
